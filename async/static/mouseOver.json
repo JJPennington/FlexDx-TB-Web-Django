@@ -1,0 +1,15 @@
+{
+
+"opt0":"<h3>1. Smear:</h3>Sputum smear microscopy for each diagnostic attempt, with liquid-media TB culture only to evaluate smear-positive cases with a history of previous TB treatment for drug resistance. (Cultures in all scenarios trigger drug-susceptibility testing if positive.)",
+"opt1":"<h3>2. Culture for retreatment:</h3>Sputum smear microscopy used for patients without a history of TB treatment; smear plus liquid-media culture used to diagnose TB in any previously-treated individual with symptoms (regardless of smear status).",
+"opt2":"<h3>5. GeneXpert for all:</h3>Xpert MTB/RIF for all patients.",
+"opt3":"<h3>7. MODS/TLA:</h3>Sputum smear, plus microcolony-based TB culture (e.g., MODS or thin-layer agar, TLA) for all patients.",
+"opt4":"<h3>8. Same-day smear microscopy:</h3>Double the per-test cost of sputum smear microscopy, in exchange for the ability to provide results to patients in the same clinical encounter (e.g., with peripheral, unbatched reading of sputum smears).",
+"opt5":"<h3>9. Same-day GeneXpert:</h3>Double the per-test cost of Xpert MTB/RIF, in exchange for the ability to provide results to patients in the same clinical encounter (e.g., peripheral deployment, with greater costs reflecting lower volume per machine).",
+"opt6":"<h3>4. GeneXpert for smear positive only:</h3>Xpert MTB/RIF for smear-positive patients only (i.e., for rapid DST), with a positive test for rifampin resistance triggering treatment for MDR-TB.",
+"opt7":"<h3>3. GeneXpert for HIV positive only:</h3>Xpert MTB/RIF for HIV-infected patients only, with a positive test for rifampin resistance triggering treatment for MDR-TB.  Note that Xpert is assumed to be deployed at the district level, such that results cannot generally be provided during the same clinical encounter.",
+"opt8":"<h3>6. GeneXpert for all, culture confirmed:</h3>Xpert MTB/RIF for all patients, but treatment for MDR-TB only initiated if rifampin resistance is confirmed by culture.",
+"opt9":"<h3>All Strategies:</h3>Model all 9 diagnostic strategies, produce comparative graphs and chart.",
+"opt10":"<h3>Single Strategy</h3>Model a single diagnostic strategy against the baseline strategy (Smear)."
+
+}

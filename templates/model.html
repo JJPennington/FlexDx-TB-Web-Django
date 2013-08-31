@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Running{% endblock %}
+
+{% block jscript %}
+<script type="text/javascript">
+$(document).ready(function () {
+    web_path='{{ web_path }}';
+    $.ajax({url: "{% static 'jscript/base.js' %}",dataType: "script",async: false}); 
+
+{% if run_all %}
+    $.ajax({url: "{% static 'jscript/run_all.js' %}",dataType: "script",async: false});
+    $("ul#loading").css("width",'250');
+{% else %}
+    $("ul#loading").css("width","50");
+{% endif %}
+    $("ul#loading").fadeIn();
+    cJSON_id = setInterval( checkJSON, 5000 ); /*Set 5 second timer: base*/
+    blink_id = setInterval ( blink, 1000 ); /*Set the 1 second blink, p bar */
+});
+</script>
+{% endblock %}
+
+{% block content %}
+
+<div id='survey_console'>
+<p>Help us improve this model; click <a href='https://www.surveymonkey.com/s/JV6WQY9' target='_blank'>here</a> to take our survey</p>
+</div>
+
+<div id='l_console'>
+{% if run_all %}
+<p id='remain'>Strategies remaining: 10</p>
+{% else %}
+<p id='remain'>Strategies remaining: 2</p>
+{% endif %}
+<ul id='loading'>
+<li></li>
+<li></li>
+{% if run_all %}
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+{% endif %}
+</ul>
+</div>
+
+<div id='model_inputs'>
+<p>Model options:</p>
+<ul id='mi'>
+<li class='mili'><span class='head'>TB Incidence:</span> {{ tb_inc }} per 100,000</li>
+<li class='mili'><span class='head'>HIV prevalence:</span> {{ hiv_inc }}%</li>
+<li class='mili'><span class='head'>MDR prevalence:</span> {{ mdr_inc }}%</li>
+</ul>
+<ul id='mi_cost'>
+<li><span class='head'>Treatment of one patient with first-line drugs:</span> ${{ drg_cst }}</li>
+<li><span class='head'>Treatment of one patient with retreatment ("category 2") regimen:</span> ${{ drg2_cst }}</li>
+<li><span class='head'>Treatment of one patient with second-line (MDR) drugs:</span> ${{ drg3_cst }}</li>
+<li><span class='head'>One outpatient visit (e.g., for TB diagnosis):</span> ${{ opt_cst }}</li>
+<li><span class='head'>Full sputum smear evaluation (e..g, collection &amp; evaluation of 2 smears):</span> ${{ sm_cst }}</li>
+<li><span class='head'>Full sputum smear, including extra costs to make results available on same day:</span> ${{ sd_cst }}</li>
+<li><span class='head'>Single Xpert MTB/RIF test:</span> ${{ gxp_cst }}</li>
+<li><span class='head'>Single Xpert, including extra costs to make results available on same day:</span> ${{ sdgxp_cst }}</li>
+<li><span class='head'>Single automated liquid-media culture (MGIT) without DST:</span> ${{ cx_cst }}</li>
+<li><span class='head'>Single automated liquid-media culture (MGIT) with DST:</span> ${{ dst_cst }}</li>
+<li><span class='head'>Single microcolony-based culture (MODS or thin-layer agar):</span> ${{ mods_cst }}</li>
+</ul></div>
+
+{% if run_all %}
+    <div id='linkbar'><ul>
+    <li name='strat0'><span>1. Smear</span></li>
+    <li name='strat1'><span>2. Culture for retreatment</span></li>
+    <li name='strat7'><span>3. GeneXpert for HIV positive only</span></li>
+    <li name='strat6'><span>4. GeneXpert for smear positive only</span></li>
+    <li name='strat2'><span>5. GeneXpert for all</span></li>
+    <li name='strat8'><span>6. GeneXpert for all, culture confirmed</span></li>
+    <li name='strat3'><span>7. MODS/TLA</span></li>
+    <li name='strat4'><span>8. Same-day smear microscopy</span></li>
+    <li name='strat5'><span>9. Same-day GeneXpert</span></li>
+    <li name='strat9' class='d_blue' ><span>Graphs</span></li>
+    <li name='strat10' class='d_blue' ><span>Comparison Table</span></li>
+    </ul></div>
+{% endif %}
+
+<div id='mainbox'>
+
+<div id='left_box'>
+<h1></h1>
+<ul class='r_display'>
+</ul>
+</div>
+
+<div id='strat0'><h1></h1><ul></ul></div>
+
+{% if run_all %}
+    <div id='strat1'><h1></h1><ul></ul></div>    
+    <div id='strat2'><h1></h1><ul></ul></div>
+    <div id='strat3'><h1></h1><ul></ul></div>
+    <div id='strat4'><h1></h1><ul></ul></div>
+    <div id='strat5'><h1></h1><ul></ul></div>
+    <div id='strat6'><h1></h1><ul></ul></div>
+    <div id='strat7'><h1></h1><ul></ul></div>
+    <div id='strat8'><h1></h1><ul></ul></div>
+{% endif %}
+
+<div id='graph_box'></div>
+
+<div id='table_box'></div>
+
+</div>
+{% endblock %}

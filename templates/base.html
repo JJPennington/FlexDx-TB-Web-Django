@@ -1,0 +1,43 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+<title>FlexDx-TB Model - {% block title %}{% endblock %}</title>
+<link rel='stylesheet' type='text/css' href='{% static "css/modelsheet.css" %}' />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+{% block jscript %}{% endblock %}
+
+</head>
+<body>
+
+<div id='titlebox'>
+
+<div id='title'>
+TB Model
+</div>
+
+<div id='statement'>
+A user-friendly, open-source transmission model of TB
+</div>
+
+</div>
+
+<hr class='divider' />
+
+{% block content %}{% endblock %}
+
+<div id='logobar'>
+<ul>
+<!--<li><a class='noborder' title='Johns Hopkins School of Public Health' href='http://www.jhsph.edu'>
+<img class='logo' src='{% static "images/Logo_Blue.jpg" %}' /></a></li> -->
+<li><a class='noborder' title='London School of Hygiene and Tropical Medicine' href='http://www.lshtm.ac.uk'>
+<img class='logo' src='{% static "images/lshtm_logo.png" %}' /></a></li>
+<li><a class='noborder' title='National Institutes of Health' href='http://www.nih.gov'>
+<img class='logo' src='{% static "images/nih_logo.jpg" %}' /></a></li>
+</ul>
+</div>
+
+</body>
+</html>

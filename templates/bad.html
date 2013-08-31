@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Bad Request{% endblock %}
+
+{% block jscript %}
+<script>
+
+$(document).ready(function () {
+
+    $("#graph_box").show();
+    $("#title").click(function () {
+        window.location = '/index.html'
+    });
+
+});
+</script>
+{% endblock %}
+
+
+{% block content %}
+<div id='mainbox'>
+<div id='graph_box'>
+<p style='text-align:center;font-size:2em;font-weight:bold;'>Bad {{ type }} arguments, please return to the <a href="{% url 'async.views.home_page' %}">index</a> page</p>
+</div>
+</div>
+{% endblock %}

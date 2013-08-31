@@ -1,0 +1,98 @@
+-------------------------------
+ Django FlexDx Web Version 0.1
+-------------------------------
+
+This framework has been tested on Linux (Ubuntu 12.04.2) and OSX (10.7.5).
+
+This README is to help you install and configure this django web-framework
+version of the FlexDx-TB Model.  You will need to install the following
+software packages on your machine.
+
+- python 2.7
+- django 1.5.1
+- scipy 0.13.0, numpy 1.8.0
+- matplotlib 1.2.1
+
+In Linux:
+
+	Ubuntu (and it's parent distribution Debian) has a package management
+application (apt-get) which is usefull for the installation of python (if not
+already installed), scipy, matplotlib and numpy.  The django version in the
+default repository is 1.4.1, so to install django it is suggested that you use
+the python package management applications 'pip' or 'easy_install', which will 
+install django version 1.5.1
+
+In OSX:
+
+	Python comes pre-installed on OSX systems; there is a 'Superpack'
+available online that includes numpy, scipy and matplotlib; this is the best
+way to install these three libraries as other ways of installation can be
+problematic.  Use 'pip' or 'easy_install' to install django.	 
+
+CONFIGURATION INSTRUCTIONS
+--------------------------
+
+Once they are installed, download this repository into a directory.  None of 
+the directories from the root to the current directory can contain spaces in 
+their names.
+
+eg:
+
+/Users/name/Desktop/flexdxtb/ is good
+/Users/name/Work Directory/flexdxtb/ is not
+
+Open up the file 'settings.py' which is found in the flexdxtb/flexdxtb/ 
+directory with a plain-text editor.  Scroll down to the MEDIA_ROOT parameter and
+set this value to the absolute location of the media/ directory.  Using the above
+example:
+
+MEDIA_ROOT = '/Users/name/Desktop/flexdxtb/media/'
+
+Next find the TEMPLATE_DIRS tuple and add the path to the template directory.
+Again, using the above example:
+
+TEMPLATE_DIRS = (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    "/Users/name/Desktop/flexdxtb/templates",
+)
+
+Now save the file settings.py where it is in plain-text.
+
+Next, open the file flexdxtb/async/views.py with the same plain-text editor and
+go to line 34, which should read
+
+s = "echo " #insert the path to the flexbg.py file
+
+The flexbg.py file is found in the flexdxtb/async/ directory. Using the above 
+example again, you should change this entry to:
+
+s = "echo /Users/name/Desktop/flexdxtb/async/flexbg.py "
+
+It is important to leave the space at the end, before the quote but after the
+y.
+
+This should be all that is required to get the model running on this machine.
+Once this is done, using a terminal (shell) program go into the root directory
+of the repository (using the same example, /Users/name/Desktop/flexdxtb/) and
+type:
+
+python manage.py runserver
+
+If django is properly setup, you should get
+
+0 errors found
+August 30, 2013 - 11:24:17
+Django version 1.5.1, using settings 'flexdxtb.settings'
+Development server is running at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+printed on the screen. Then, in your browser, set the url to 
+http://127.0.0.1:8000/ and run the model as you like.  It is best to run this
+on a more advanced machine as the model is very processor intensive.
+
+If you wish to make modifications to the model, examine the runmodel() function
+in the flexbg.py file located in flexdxtb/async/.
+
+- The FlexDx Team

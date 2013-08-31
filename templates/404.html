@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}404 Page Not Found{% endblock %}
+
+{% block jscript %}
+<script>
+
+$(document).ready(function () {
+
+    $("#graph_box").show();
+    $("#title").click(function () {
+        window.location = '/index.html'
+    });
+
+});
+</script>
+{% endblock %}
+
+{% block content %}
+<div id='mainbox'>
+<noscript><h1 style='color:white;'>404 Page not found</h1><p style='text-align:center;color:white;'>The index {{ request_path }} was not found on this site; if you were directed here from another page within the site please contact the <a href='mailto:jj.penn@gmail.com'>admin</a>.  Click <a href='/'>here</a> to return to the Home page.</p></noscript>
+<div id='graph_box'>
+<h1>404 Page not found</h1>
+<p style='text-align:center;font-size:1.6em;font-weight:bold;'>The index {{ request_path }} was not found on this site; if you were directed here from another page within the site please contact the <a href='mailto:jj.penn@gmail.com'>admin</a>.  Click <a href='/'>here</a> to return to the Home page.</p>
+</div>
+</div>
+{% endblock %}

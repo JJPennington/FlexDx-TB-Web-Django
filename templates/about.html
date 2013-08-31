@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}About{% endblock %}
+
+{% block jscript %}
+<script>
+
+$(document).ready(function () {
+
+    $("#left_box").show();
+    $("#right_box").show();
+    $("#linkbar li").show();
+    $("#title").click(function () {
+        window.location = '/index.html'
+    });
+
+});
+
+</script>
+{% endblock %}
+
+{% block content %}
+<div id='linkbar'>
+<ul>
+<li><a href='{% url 'async.views.home_page' %}'>Model</a></li>
+</ul>
+</div>
+
+<div id='survey_console_index'>
+<p>Help us improve this model; click <a href='https://www.surveymonkey.com/s/JV6WQY9' target='_blank'>here</a> to take our survey</p>
+</div>
+
+<div id='mainbox'>
+
+<div id='left_box'>
+
+<h3>Dr. David Dowdy</h3>
+
+<p>
+<img src='{% static "images/dowdy.jpg" %}' class='dd_left' />
+David Dowdy is the B. Frank and Kathleen Polk Assistant Professor of Epidemiology at Johns Hopkins.  His primary research explores the epidemiology, dynamics, and economics of TB diagnosis and treatment.  David finished his MD/PhD at Hopkins and a residency in internal medicine at UCSF before returning to the faculty at Hopkins in 2011.  He is a member of the steering committee of the Gates Foundation's TB Modeling and Analysis Consortium (TB-MAC), sees patients in internal medicine at East Baltimore Medical Center (an urban outpatient clinic), and receieved the International Union Against TB and Lung Disease's 2012 Young Investigator Award.  David has particular interests in mentoring a new generation of TB modelers, exploring relationships between biology and human behavior with respect to diagnostic testing, seeing the outdoors, playing tennis/basketball, and expanding the Moshi Monster collection of his 9-year-old daughter, Chesapeake.
+</p>
+
+<h3>Dr. Peter Dodd</h3>
+
+<p>
+<img src='{% static "images/dodd.jpg" %}' class='pd_right' />
+Pete Dodd is a research associate in health economic modelling at ScHARR, University of Sheffield, UK, which he joined in 2013. Pete originally studied mathematics at Girton College, Cambridge before doing my PhD in theoretical physics at Imperial College London. He also has a B.Sc. from the Open University, mainly in biological subjects. After his PhD, Pete worked on infectious disease modelling as a post-doc at Imperial College London, and then at the London School of Hygiene and Tropical Medicine where he was the mathematical modeller for the ZAMSTAR cluster randomised trial of TB interventions in South Africa and Zambia.
+</p>
+
+</div>
+
+
+<div id='right_box'>
+Description of the model
+<p id="static">
+FlexDx is a tool that allows non-expert users to define their local situation according to four key parameters: TB incidence, proportion of new TB cases that are multidrug-resistant (MDR), adult human immunodeficiency virus (HIV) prevalence, and per-patient cost of first-line therapy. This tool then links a decision analysis describing nine different TB diagnostic strategies to a transmission model that provides five-year estimates of TB incidence, mortality, and control costs in any user-specified scenario.
+</p>
+</div>
+
+</div>
+{% endblock %}
